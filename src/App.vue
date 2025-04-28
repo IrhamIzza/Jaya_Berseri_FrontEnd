@@ -1,10 +1,31 @@
 <script setup>
-import { RouterLink, RouterView } from "vue-router";
+import { RouterLink, RouterView, useRouter } from "vue-router";
+import axios from 'axios';
+import { ref } from 'vue'
+
+const router = useRouter();
+const name = localStorage.getItem('name');
+
+function logout() {
+   axios.post('http://localhost:8000/api/logout', {}, {
+      headers: {
+         Authorization: `Bearer ${localStorage.getItem('token')}`
+      }
+   })
+      .then(function (response) {
+         console.log(response.data.messages);
+         localStorage.removeItem('token');
+         router.push('/login')
+      })
+      .catch(function (error) {
+         console.error(error);
+      });
+
+}
 </script>
 
 <template>
-
-  <header>
+   <header>
     <div class="wrapper">
       <nav class="navbar navbar-expand-lg bg-body-tertiary" v-if="$route.name != 'login'">
         <div class="container-fluid">
@@ -24,9 +45,6 @@ import { RouterLink, RouterView } from "vue-router";
               <li class="nav-item">
                 <a class="nav-link" href="#"><RouterLink to="/login">Login</RouterLink></a>
               </li>
-              <!-- <li class="nav-item">
-                <a class="nav-link"><RouterLink to="/about">About</RouterLink></a>
-              </li> -->
             </ul>
             <div class="d-flex" role="search">
               <p>hai</p>
@@ -34,10 +52,14 @@ import { RouterLink, RouterView } from "vue-router";
           </div>
         </div>
       </nav>
-
     </div>
   </header>
-  <router-view></router-view>
+   <router-view></router-view>
 </template>
 
-<style scoped></style>
+<style scoped>
+.no-decoration {
+  text-decoration: none;
+  color: inherit;
+}
+</style>

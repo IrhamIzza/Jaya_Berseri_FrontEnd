@@ -1,7 +1,9 @@
 <!-- Home.vue -->
 <template>
   <div>
-    <router-link to="/about">Go to About</router-link>
+    <div class="text-4xl text-green-500 font-bold">
+    Halo, Tailwind jalan! 🚀
+  </div>
   </div>
 </template>
 
