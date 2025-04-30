@@ -1,6 +1,15 @@
 <script setup>
 import { Button } from '@/components/ui/button'
-import { Sheet, SheetTrigger, SheetContent } from '@/components/ui/sheet'
+import {
+  Sheet,
+  SheetClose,
+  SheetContent,
+  SheetDescription,
+  SheetFooter,
+  SheetHeader,
+  SheetTitle,
+  SheetTrigger,
+} from '@/components/ui/sheet'
 import { RouterLink, useRouter } from 'vue-router'
 import axios from 'axios';
 import {
@@ -43,7 +52,7 @@ function logout() {
 }
 </script>
 <template>
-    <header class="flex items-center justify-between p-4 bg-white shadow-md">
+    <header class="flex items-center justify-between p-4 bg-linear-to-bl from-violet-500 to-fuchsia-500 shadow-md">
         <!-- Logo -->
         <div class="text-xl font-bold text-primary">
             JAYA BERSERI
@@ -91,16 +100,22 @@ function logout() {
                 </SheetTrigger>
 
                 <SheetContent side="left">
-                    <nav class="flex flex-col space-y-4 p-4">
-                        <RouterLink to="/home" class="text-gray-700 hover:text-primary text-lg font-semibold">
-                            Home
-                        </RouterLink>
-                        <RouterLink to="/about" class="text-gray-700 hover:text-primary text-lg font-semibold">
-                            About
-                        </RouterLink>
-                        <RouterLink to="/about" class="text-gray-700 hover:text-primary text-lg font-semibold">
-                            Services
-                        </RouterLink>
+                    <nav class="flex flex-col mt-8 space-y-4 p-4">
+                        <SheetClose class="border-b-2 text-left">
+                            <RouterLink to="/home" class="text-gray-700 hover:text-primary text-lg font-semibold">
+                                Home
+                            </RouterLink>
+                        </SheetClose>
+                        <SheetClose class="border-b-2 text-left">
+                            <RouterLink to="/about" class="text-gray-700 hover:text-primary text-lg font-semibold">
+                                About
+                            </RouterLink>
+                        </SheetClose>
+                        <SheetClose class="border-b-2 text-left">
+                            <RouterLink to="/home" class="text-gray-700 hover:text-primary text-lg font-semibold">
+                                Home
+                            </RouterLink>
+                        </SheetClose>
                     </nav>
                 </SheetContent>
             </Sheet>
