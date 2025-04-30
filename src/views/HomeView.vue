@@ -1,5 +1,20 @@
 <script setup>
 import { Button } from '@/components/ui/button'
+import Card from '../components/Card.vue';
+
+const itemsCard = [
+  {
+    title: 'Mudah Larut',
+    content: 'Mudah di serap oleh tanaman sehingga bisa maksimal penyerapan tanaman',
+    img: '/images/serap.PNG'
+  },
+  {
+    title: 'Judul B',
+    content: 'Deskripsi B',
+    img: '/images/b.jpg'
+  }
+]
+
 </script>
 
 <!-- Home.vue -->
@@ -30,9 +45,16 @@ import { Button } from '@/components/ui/button'
       </div>
     </section>
     <!-- ICON -->
-    <div>
-      
+    <div class="bg-black pt-2">
+      <div class="px-4">
+        <Card v-for="(value, index) in itemsCard" 
+            :key="index"
+            :title="value.title"
+            :content="value.content"
+            :img="value.img"
+            >
+          </Card>
+      </div>
     </div>
   </div>
 </template>
-
