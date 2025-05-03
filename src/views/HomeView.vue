@@ -24,7 +24,6 @@ const itemsCard = [
 
 <!-- Home.vue -->
 <template>
-  <div>
     <!-- Hero -->
     <section class="relative h-[70vh] md:h-screen lg:h-[85vh] w-full">
       <!-- Background -->
@@ -50,16 +49,55 @@ const itemsCard = [
       </div>
     </section>
     <!-- ICON -->
-    <div class="bg-black pt-2">
-      <div class="px-4 sm:flex gap-4 justify-center">
-        <Card v-for="(value, index) in itemsCard" 
-            :key="index"
-            :title="value.title"
-            :content="value.content"
-            :img="value.img"
-             >
-          </Card>
+    <section>
+      <div class="bg-neutral-800 pt-2">
+        <div class="px-4 sm:flex gap-4 justify-center">
+          <Card v-for="(value, index) in itemsCard" 
+              :key="index"
+              :title="value.title"
+              :content="value.content"
+              :img="value.img"
+              >
+            </Card>
+        </div>
       </div>
+    </section>
+    <!-- About -->
+    <section>
+      <div class="flex flex-col lg:flex-row lg:gap-4 h-full w-full py-5 border-b-2  relative bg-black">
+        <div class="lg:w-1/3 w-4/5 md:w-3/4 mx-auto grid grid-flow-col gap-2 px-4">
+            <div class="">
+                <img class="rounded-lg object-cover w-full h-full" src="/images/vertical.jpg" alt="">
+            </div>
+            <div class="flex flex-wrap gap-2">
+                <img class="rounded-lg object-cover " src="/images/hori1.jpg" alt="">
+                <img class="rounded-lg object-cover " src="/images/hori2.jpg" alt="">
+            </div>
+        </div>
+        <div class="lg:w-2/3 px-4">
+            <p class="py-4 w-full text-white text-center font-bold text-4xl">TENTANG KAMI</p>
+            <p class="w-full text-white">Kami adalah perusahaan pupuk pertanian dalam mengatasi kelangkaan
+                pupuk
+                subsidi dari pemerintah. Kami
+                menyediakan pupuk alternatif yang
+                berkualitas dengan harga yang terjangkau oleh masyarakat petani,Karakter pupuk
+                kami adalah mengandung unsur yang lengkap dan seimbang antara unsur makro dan
+                mikro sesuai dengan yang di butuhkan tanaman.</p>
+
+            <p class="pt-5 text-white">
+                Produk kami sudah teruji sejak tahun 1988, Dari pengalaman kami di lapangan pupuk kami bisa
+                meningkat
+                hasil panen sekitar 20% . Tentu nya dengan standar dosis kami sesuai dengan jenis tanaman. Kami
+                berkomitmen memberikan kepuasan petani berupa kesehatan tanaman dan peningkatan hasil panen.
+                Kami
+                memberikan garansi mutu yang bisa di tuangkan dalam perjanjian tertulis dengan petani/konsumen.
+                Dengan
+                catatan bukan di atas tanah yang selalu mengeluarkan air dan tidak bisa mengering ( bahasa Jawa
+                tanah
+                becer)
+            </p>
+        </div>
     </div>
-  </div>
+    </section>
+
 </template>
