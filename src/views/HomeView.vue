@@ -23,13 +23,13 @@ const itemsCard = [
 
 const itemCardProduct = [
   {
-    title: 'Mudah Larut',
-    content: 'Pupuk DAP (Diammonium Phosphate) adalah pupuk anorganik yang mengandung dua unsur hara utama, Mengandung 18% Nitrogen (N) untuk pertumbuhan daun & batang',
+    title: 'PUPUK DAP',
+    content: 'Pupuk anorganik yang mengandung dua unsur hara utama, Mengandung 18% Nitrogen (N) untuk pertumbuhan daun & batang.',
     img: '/images/icon1.png'
   },
   {
-    title: 'Meningkatkan Hasil',
-    content: 'Seluruh bulir terisi penuh dan tidak ada bulir yang hampa/ kosong',
+    title: 'PUPUK NAP',
+    content: 'Pupuk yang mengandung dua unsur hara utama, yaitu Nitrogen (N) dan Fosfor (P). Pupuk ini digunakan untuk meningkatkan pertumbuhan tanaman.',
     img: '/images/icon2.png'
   },
 ]
@@ -116,18 +116,16 @@ const itemCardProduct = [
     </section>
     <!-- Produk -->
     <section>
-        <div class="bg-neutral-700 p-3">
-          <div>
-            <h1 class="text-4xl text-center font-bold text-white">PRODUK</h1>
-            <div class="px-16 grid gap-2 ">
-              <CardProduct v-for="(value, index) in itemCardProduct"
-                v-bind:key="index"
-                v-bind:title="value.title"
-                v-bind:content="value.content"
-                v-bind:img="value.img"
-              >
-              </CardProduct>
-            </div>
+        <div class="bg-neutral-700 py-3 md:px-20">
+          <h1 class="text-4xl py-4 text-center font-bold text-white">PRODUK</h1>
+          <div class="px-4 flex flex-col sm:flex-row gap-2 ">
+            <CardProduct v-for="(value, index) in itemCardProduct"
+              v-bind:key="index"
+              v-bind:title="value.title"
+              v-bind:content="value.content"
+              v-bind:img="value.img"
+            >
+            </CardProduct>
           </div>
         </div>
     </section>

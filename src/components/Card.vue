@@ -17,7 +17,7 @@ const props = defineProps({
 </script>
 <template>
     <div class="py-2">
-        <Card class="h-full sm:max-w-[380px]">
+        <Card class="h-full sm:max-w-[380px] ">
           <CardHeader>
             <div class="flex mx-auto h-24 w-24 ">
                 <img v-bind:src="img" alt="" class="object-cover rounded-full ">
