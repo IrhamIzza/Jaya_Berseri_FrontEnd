@@ -1,6 +1,7 @@
 <script setup>
 import { Button } from '@/components/ui/button'
 import Card from '../components/Card.vue';
+import CardProduct from '@/components/CardProduct.vue';
 
 const itemsCard = [
   {
@@ -17,6 +18,19 @@ const itemsCard = [
     title: 'Kandungan Seimbang',
     content: 'Tanah gembur sehingga oksigen bisa masuk pernafasan tanaman bisa maksimal',
     img: '/images/kandungan.png'
+  },
+]
+
+const itemCardProduct = [
+  {
+    title: 'Mudah Larut',
+    content: 'Pupuk DAP (Diammonium Phosphate) adalah pupuk anorganik yang mengandung dua unsur hara utama, Mengandung 18% Nitrogen (N) untuk pertumbuhan daun & batang',
+    img: '/images/icon1.png'
+  },
+  {
+    title: 'Meningkatkan Hasil',
+    content: 'Seluruh bulir terisi penuh dan tidak ada bulir yang hampa/ kosong',
+    img: '/images/icon2.png'
   },
 ]
 
@@ -51,6 +65,7 @@ const itemsCard = [
     <!-- ICON -->
     <section>
       <div class="bg-neutral-800 pt-2">
+        <h1 class="text-4xl text-center font-bold text-white">KELEBIHAN</h1>
         <div class="px-4 sm:flex gap-4 justify-center">
           <Card v-for="(value, index) in itemsCard" 
               :key="index"
@@ -99,5 +114,21 @@ const itemsCard = [
         </div>
     </div>
     </section>
-
+    <!-- Produk -->
+    <section>
+        <div class="bg-neutral-700 p-3">
+          <div>
+            <h1 class="text-4xl text-center font-bold text-white">PRODUK</h1>
+            <div class="px-16 grid gap-2 ">
+              <CardProduct v-for="(value, index) in itemCardProduct"
+                v-bind:key="index"
+                v-bind:title="value.title"
+                v-bind:content="value.content"
+                v-bind:img="value.img"
+              >
+              </CardProduct>
+            </div>
+          </div>
+        </div>
+    </section>
 </template>
