@@ -2,6 +2,7 @@
 import { Button } from '@/components/ui/button'
 import Card from '../components/Card.vue';
 import CardProduct from '@/components/CardProduct.vue';
+import Footer from '@/components/Footer.vue';
 
 const itemsCard = [
   {
@@ -115,9 +116,9 @@ const itemCardProduct = [
     </div>
     </section>
     <!-- Produk -->
-    <section>
-        <div class="bg-neutral-700 py-3 md:px-20">
-          <h1 class="text-4xl py-4 text-center font-bold text-white">PRODUK</h1>
+    <section class="">
+        <div class="bg-neutral-700 py-8 md:px-20">
+          <h1 class="text-4xl pb-4 text-center font-bold text-white">PRODUK</h1>
           <div class="px-4 flex flex-col sm:flex-row gap-2 ">
             <CardProduct v-for="(value, index) in itemCardProduct"
               v-bind:key="index"
@@ -129,4 +130,7 @@ const itemCardProduct = [
           </div>
         </div>
     </section>
+    <!-- Footer -->
+    <Footer>
+    </Footer>
 </template>
