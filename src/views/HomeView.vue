@@ -63,9 +63,9 @@ const itemCardProduct = [
         </div>
       </div>
     </section>
-    <!-- ICON -->
+    <!-- Kelebihan -->
     <section>
-      <div class="bg-neutral-800 pt-2">
+      <div class="bg-neutral-800 py-6">
         <h1 class="text-4xl text-center font-bold text-white">KELEBIHAN</h1>
         <div class="px-4 sm:flex gap-4 justify-center">
           <Card v-for="(value, index) in itemsCard" 

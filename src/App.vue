@@ -27,7 +27,7 @@ function logout() {
 
 <template>
    <header>
-    <Navbar v-if="$route.name != 'login'"/>
+    <Navbar v-if="!['login', 'register'].includes($route.name)"/>
    </header>
    <router-view></router-view>
 </template>

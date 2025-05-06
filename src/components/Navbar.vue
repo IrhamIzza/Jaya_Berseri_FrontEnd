@@ -1,14 +1,14 @@
 <script setup>
 import { Button } from '@/components/ui/button'
 import {
-  Sheet,
-  SheetClose,
-  SheetContent,
-  SheetDescription,
-  SheetFooter,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
+    Sheet,
+    SheetClose,
+    SheetContent,
+    SheetDescription,
+    SheetFooter,
+    SheetHeader,
+    SheetTitle,
+    SheetTrigger,
 } from '@/components/ui/sheet'
 import { RouterLink, useRouter } from 'vue-router'
 import axios from 'axios';
@@ -30,6 +30,8 @@ import {
 
 const token = localStorage.getItem('token');
 const name = localStorage.getItem('name');
+const role = localStorage.getItem('role');
+
 const router = useRouter();
 function logout() {
     axios.post('http://localhost:8000/api/logout', {}, {
@@ -42,6 +44,7 @@ function logout() {
             localStorage.removeItem('token');
             localStorage.removeItem('name');
             localStorage.removeItem('email');
+            localStorage.removeItem('role');
             router.push('/login')
             console.info('Berhasil logout')
         })
@@ -61,6 +64,11 @@ function logout() {
         <nav class="hidden md:flex items-center space-x-6">
             <NavigationMenu>
                 <NavigationMenuList>
+                    <NavigationItem v-if="role == 1">
+                        <RouterLink to="/dashboard"
+                            class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
+                            Dashboard</RouterLink>
+                    </NavigationItem>
                     <NavigationItem>
                         <RouterLink to="/home"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
@@ -71,17 +79,7 @@ function logout() {
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
                             About</RouterLink>
                     </NavigationItem>
-                    <NavigationItem>
-                        <RouterLink to="/login"
-                            class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
-                            Login</RouterLink>
-                    </NavigationItem>
                 </NavigationMenuList>
-                <div v-if="token != null">
-                    <Button @click="logout">
-                        Logout
-                    </Button>
-                </div>
             </NavigationMenu>
         </nav>
 
@@ -112,8 +110,8 @@ function logout() {
                             </RouterLink>
                         </SheetClose>
                         <SheetClose class="border-b-2 text-left">
-                            <RouterLink to="/home" class="text-gray-700 hover:text-primary text-lg font-semibold">
-                                Home
+                            <RouterLink to="/dashboard" class="text-gray-700 hover:text-primary text-lg font-semibold">
+                                Dashboard
                             </RouterLink>
                         </SheetClose>
                     </nav>
@@ -126,17 +124,22 @@ function logout() {
             <NavigationMenu>
                 <NavigationMenuList>
                     <NavigationMenuItem>
-                        <NavigationMenuTrigger>Halo, {{name}}</NavigationMenuTrigger>
-                        <NavigationMenuContent>
-                            <NavigationMenuLink  @click="logout" class="w-[80px] cursor-pointer">
-                                LOGOUT
-                            </NavigationMenuLink>
-                        </NavigationMenuContent>
+                        <NavigationItem v-if="token == null">
+                            <RouterLink to="/login"
+                                class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
+                                Login</RouterLink>
+                        </NavigationItem>
+                        <div v-if="token != null">
+                            <NavigationMenuTrigger>Halo, {{ name }}</NavigationMenuTrigger>
+                            <NavigationMenuContent>
+                                <NavigationMenuLink @click="logout" class="w-[80px] cursor-pointer">
+                                    LOGOUT
+                                </NavigationMenuLink>
+                            </NavigationMenuContent>
+                        </div>
                     </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
-
-
             <!-- <DropdownMenu>
                 <DropdownMenuTrigger>{{ name }}</DropdownMenuTrigger>
                 <DropdownMenuContent>
