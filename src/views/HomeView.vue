@@ -120,12 +120,8 @@ const itemCardProduct = [
         <div class="bg-neutral-700 py-8 md:px-20">
           <h1 class="text-4xl pb-4 text-center font-bold text-white">PRODUK</h1>
           <div class="px-4 flex flex-col sm:flex-row gap-2 ">
-            <CardProduct v-for="(value, index) in itemCardProduct"
-              v-bind:key="index"
-              v-bind:title="value.title"
-              v-bind:content="value.content"
-              v-bind:img="value.img"
-            >
+            <CardProduct>
+            
             </CardProduct>
           </div>
         </div>
