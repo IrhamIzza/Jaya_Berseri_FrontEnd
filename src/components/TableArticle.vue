@@ -9,6 +9,8 @@ import {
   TableRow,
 } from '@/components/ui/table'
 import Button from './ui/button/Button.vue';
+import { RouterLink, useRouter } from 'vue-router'
+const router = useRouter();
 const props = defineProps({
   items: {
     type: Array,
@@ -32,7 +34,7 @@ const props = defineProps({
         </TableRow>
       </TableHeader>
       <TableBody>
-        <TableRow v-for="(item, index) in items" :key="index">
+        <TableRow v-for="(item, index) in items" :key="item.id">
           <TableCell class="font-medium">
             {{ index + 1 }}
           </TableCell>
@@ -40,7 +42,7 @@ const props = defineProps({
           <TableCell class="whitespace-normal overflow-y-auto max-h-10">{{ item.konten }}</TableCell>
           <TableCell>{{ item.updated_at }}</TableCell>
           <TableCell>
-            <Button>EDIT</Button>
+            <Button><router-link :to="{ name: 'articleEdit', params: { articleId: item.id }}">Edit</router-link></Button>
           </TableCell>
         </TableRow>
       </TableBody>

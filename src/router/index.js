@@ -4,6 +4,7 @@ import LoginView from '@/views/LoginView.vue'
 import AboutView from '@/views/AboutView.vue'
 import DashboardView from '@/views/DashboardView.vue'
 import RegisterView from '@/views/RegisterView.vue'
+import EditArticleView from '@/views/EditArticleView.vue'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -33,6 +34,11 @@ const router = createRouter({
       name: 'register',
       component: RegisterView,
     },
+    {
+      path: '/article/:articleId',
+      name: 'articleEdit',
+      component: EditArticleView,
+    }
     // {
     //   path: '/about',
     //   name: 'about',
