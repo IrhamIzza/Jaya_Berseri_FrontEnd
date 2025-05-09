@@ -10,7 +10,7 @@ const judul = ref('')
 const konten = ref('')
 
 onMounted(() => {
-    axios.get(`http://localhost:8000/api/article/${articleId}`, {
+    axios.get(`${import.meta.env.VITE_API_URL}/article/${articleId}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
@@ -38,7 +38,7 @@ const keunggulan = [
             <div class="flex flex-col md:flex-row gap-4 lg:px-10">
                 <div
                     class="w-[35vh] max-w-[40vh] md:w-1/5 mx-auto object-cover hover:scale-110 duration-500 animate-all">
-                    <img src="/public/images/icon1.png" class="rounded-md" alt="">
+                    <img src="/public/images/icon1.png" class="rounded-md max-h-40 md:max-h-60 flex mx-auto" alt="">
                 </div>
                 <p class="md:w-4/5 lg:text-xl">
                     {{ konten }}
@@ -92,6 +92,7 @@ const keunggulan = [
             </div>
         </div>
     </section>
+    <!-- FOOTER -->
 </template>
 <style >
 

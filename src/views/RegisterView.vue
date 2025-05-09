@@ -71,7 +71,7 @@ onMounted(() => {
 });
 
 function login() {
-    axios.post('http://localhost:8000/api/regiser', {
+    axios.post(`${import.meta.env.VITE_API_URL}/regiser`, {
         name: name.value,
         email: email.value,
         password: password.value

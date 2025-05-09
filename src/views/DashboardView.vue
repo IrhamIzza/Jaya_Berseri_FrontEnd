@@ -3,11 +3,17 @@ import AppSidebar from '@/components/AppSidebar.vue';
 import TableArticle from '@/components/TableArticle.vue';
 import axios from 'axios';
 import { onMounted, ref } from 'vue';
+import { useRouter } from 'vue-router';
 
+const router = useRouter()
 const artikel = ref([])
-
 onMounted(() => {
-    axios.get('http://localhost:8000/api/article', {
+    const token = localStorage.getItem('token');
+    const role = +localStorage.getItem('role');
+    if (token == null || role != 1) {
+        router.push('/home');
+    }
+    axios.get(`${import.meta.env.VITE_API_URL}/article`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }

@@ -34,7 +34,7 @@ const role = localStorage.getItem('role');
 
 const router = useRouter();
 function logout() {
-    axios.post('http://localhost:8000/api/logout', {}, {
+    axios.post(`${import.meta.env.VITE_API_URL}/logout`, {}, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`
         }
@@ -67,17 +67,22 @@ function logout() {
                     <NavigationItem v-if="role == 1">
                         <RouterLink to="/dashboard"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
-                            Dashboard</RouterLink>
+                            DASHBOARD</RouterLink>
                     </NavigationItem>
                     <NavigationItem>
                         <RouterLink to="/home"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
-                            Home</RouterLink>
+                            HOME</RouterLink>
+                    </NavigationItem>
+                    <NavigationItem>
+                        <RouterLink :to="{ name: 'productArticle', params: { articleId: 1 }}"
+                            class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
+                            PRODUCT</RouterLink>
                     </NavigationItem>
                     <NavigationItem>
                         <RouterLink to="/about"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
-                            About</RouterLink>
+                            ABOUT</RouterLink>
                     </NavigationItem>
                 </NavigationMenuList>
             </NavigationMenu>
@@ -100,19 +105,32 @@ function logout() {
                 <SheetContent side="left">
                     <nav class="flex flex-col mt-8 space-y-4 p-4">
                         <SheetClose class="border-b-2 text-left">
+                            <RouterLink to="/dashboard" class="text-gray-700 hover:text-primary text-lg font-semibold">
+                                DASHBOARD
+                            </RouterLink>
+                        </SheetClose>
+                        <SheetClose class="border-b-2 text-left">
                             <RouterLink to="/home" class="text-gray-700 hover:text-primary text-lg font-semibold">
-                                Home
+                                HOME
+                            </RouterLink>
+                        </SheetClose>
+                        <SheetClose class="border-b-2 text-left">
+                            <RouterLink :to="{ name: 'productArticle', params: { articleId: 1 }}" class="text-gray-700 hover:text-primary text-lg font-semibold">
+                                PRODUCT
                             </RouterLink>
                         </SheetClose>
                         <SheetClose class="border-b-2 text-left">
                             <RouterLink to="/about" class="text-gray-700 hover:text-primary text-lg font-semibold">
-                                About
+                                ABOUT
                             </RouterLink>
                         </SheetClose>
-                        <SheetClose class="border-b-2 text-left">
-                            <RouterLink to="/dashboard" class="text-gray-700 hover:text-primary text-lg font-semibold">
-                                Dashboard
+                        <SheetClose v-if="token == null" class="border-b-2 text-left">
+                            <RouterLink to="/login" class="text-gray-700 hover:text-primary text-lg font-semibold">
+                                LOGIN
                             </RouterLink>
+                        </SheetClose>
+                        <SheetClose v-if="token != null" class="border-b-2 text-left">
+                            <a @click="logout" class="text-gray-700 hover:text-primary text-lg font-semibold cursor-pointer">LOGOUT</a>
                         </SheetClose>
                     </nav>
                 </SheetContent>
@@ -127,7 +145,7 @@ function logout() {
                         <NavigationItem v-if="token == null">
                             <RouterLink to="/login"
                                 class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
-                                Login</RouterLink>
+                                LOGIN</RouterLink>
                         </NavigationItem>
                         <div v-if="token != null">
                             <NavigationMenuTrigger>Halo, {{ name }}</NavigationMenuTrigger>

@@ -19,8 +19,13 @@ const judul = ref('')
 const konten = ref('')
 
 onMounted(() => {
+    const token = localStorage.getItem('token');
+    const role = +localStorage.getItem('role');
+    if (token == null || role != 1) {
+        router.push('/home');
+    }
     console.log('Route:', articleId)
-    axios.get(`http://localhost:8000/api/article/${articleId}`, {
+    axios.get(`${import.meta.env.VITE_API_URL}/article/${articleId}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
@@ -38,7 +43,7 @@ onMounted(() => {
 })
 
 function update() {
-    axios.put(`http://localhost:8000/api/article/${articleId}`,{
+    axios.put(`${import.meta.env.VITE_API_URL}/article/${articleId}`,{
             judul: judul.value,
             konten: konten.value
         },
