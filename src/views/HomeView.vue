@@ -68,7 +68,7 @@ const itemCardProduct = [
       <div class="bg-neutral-800 py-6">
         <h1 class="text-4xl text-center font-bold text-white">KELEBIHAN</h1>
         <div class="px-4 sm:flex gap-4 justify-center">
-          <Card v-for="(value, index) in itemsCard" 
+          <Card v-for="(value, index) in itemsCard" loading="lazy"
               :key="index"
               :title="value.title"
               :content="value.content"

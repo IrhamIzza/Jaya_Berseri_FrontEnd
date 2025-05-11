@@ -32,7 +32,7 @@ const itemCardProduct = [
 ]
 </script>
 <template>
-    <Card class="py-2 lg:p-4 gap-0 h-full flex my-auto" v-for="(value, index) in itemCardProduct">
+    <Card class="py-2 lg:p-4 gap-0 h-full flex my-auto" v-for="(value, index) in itemCardProduct" loading="lazy">
       <CardTitle class="text-center text-2xl font-bold pb-1">{{ value.title }}</CardTitle>
       <div class="flex flex-row px-4 gap-2">
         <div class="flex flex-1/3">
