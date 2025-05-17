@@ -1,4 +1,5 @@
 <script setup>
+import Footer from '@/components/Footer.vue';
 import axios from 'axios';
 import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
@@ -29,12 +30,15 @@ onMounted(() => {
     fetch(articleId.value)
 })
 
-watch(()=> route.params.articleId, (New, old) => {
+watch(() => route.params.articleId, (New, old) => {
     fetch(New)
 })
 
 const keunggulan = [
     'Mudah larut sehingga mudah diserap tanah', 'Terdapat unsur yang lengkap', 'Dapat memperbaiki sifat fisik juga bioglogis tanah / Tanah menjadi gembur', 'Dapat meningkatkan produksi hasil pertanian'
+]
+const picture = [
+    '/images/npk1.jpeg', '/images/npk2.jpeg', '/images/npk3.jpeg', '/images/npk4.jpeg', '/images/npk5.jpeg', '/images/npk6.jpeg'
 ]
 
 </script>
@@ -46,7 +50,7 @@ const keunggulan = [
             <div class="flex flex-col md:flex-row gap-4 lg:px-10">
                 <div
                     class="w-[35vh] max-w-[40vh] md:w-1/5 mx-auto object-cover hover:scale-110 duration-500 animate-all">
-                    <img src="/public/images/icon1.png" class="rounded-md max-h-40 md:max-h-60 flex mx-auto" alt="">
+                    <img src="/images/icon1.png" class="rounded-md max-h-40 md:max-h-60 flex mx-auto" alt="">
                 </div>
                 <p class="md:w-4/5 lg:text-xl">
                     {{ konten }}
@@ -101,6 +105,30 @@ const keunggulan = [
             </div>
         </div>
     </section>
+    <!-- Jenis Tanaman -->
+    <section>
+        <div class="p-4 lg:px-40 md:px-10">
+            <div class="text-2xl md:text-4xl font-bold text-center">JENIS JENIS TANAMAN </div>
+            <div class="grid grid-flow-col grid-rows-4 md:grid-rows-3 py-6 lg:text-2xl gap-1 md:items-center ">
+                <div class="relative pr-2 ">1. Tanamanan Pangan <span class="right-[2px] absolute">:</span></div>
+                <div class="relative pr-2 self-start row-span-2 md:row-span-1">2. Tanamanan Palawija <span
+                        class="right-[2px] absolute">:</span></div>
+                <div class="relative pr-2 ">3. Tanamanan Perkebunan <span class="right-[2px] absolute">:</span></div>
+                <div class="relative ">Padi, Kedelai, Jagung</div>
+                <div class="relative row-span-2 md:row-span-1"> Semangka, Cabe, Tomat, Melon, Bawang Merah/Putih,
+                    Kentang </div>
+                <div class="relative "> Tebu, Kopi, Kelapa Sawit, Kako</div>
+            </div>
+        </div>
+        <div class="p-4 lg:px-40 md:px-10">
+            <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-6">
+                <div v-for="(item, index) in picture" :key="index">
+                    <img class="aspect-[3/2] w-full object-cover border-[6px] border-green-500 rounded-md" :src=item loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
     <!-- FOOTER -->
+    <Footer></Footer>
 </template>
 <style></style>

@@ -36,7 +36,7 @@ const itemCardProduct = [
       <CardTitle class="text-center text-2xl font-bold pb-1">{{ value.title }}</CardTitle>
       <div class="flex flex-row px-4 gap-2">
         <div class="flex flex-1/3">
-          <img v-bind:src="value.img" alt="" class="  max-h-40 mx-auto my-auto object-cover ">
+          <img v-bind:src="value.img" alt="" loading="lazy" class=" max-h-40 mx-auto my-auto object-cover ">
         </div>
         <div class="flex-2/3 flex flex-col gap-1">
           <CardContent class="px-2 text-sm/5 md:text-base">

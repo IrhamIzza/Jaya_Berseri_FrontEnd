@@ -19,7 +19,6 @@ import {
     NavigationMenuLink,
     NavigationMenuList,
     NavigationMenuTrigger,
-    navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu'
 import {
     DropdownMenu,
@@ -64,31 +63,31 @@ function logout() {
         <nav class="hidden md:flex items-center space-x-6">
             <NavigationMenu>
                 <NavigationMenuList>
-                    <NavigationItem v-if="role == 1">
+                    <NavigationMenuItem v-if="role == 1">
                         <RouterLink to="/dashboard"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
                             DASHBOARD</RouterLink>
-                    </NavigationItem>
-                    <NavigationItem>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
                         <RouterLink to="/home"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
                             HOME</RouterLink>
-                    </NavigationItem>
-                    <NavigationItem>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
                         <RouterLink :to="{ name: 'productArticle', params: { articleId: 1 }}"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
                             PUPUK NPK</RouterLink>
-                    </NavigationItem>
-                    <NavigationItem>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
                         <RouterLink :to="{ name: 'productArticle', params: { articleId: 2 }}"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
                             PUPUK DAP</RouterLink>
-                    </NavigationItem>
-                    <NavigationItem>
+                    </NavigationMenuItem>
+                    <NavigationMenuItem>
                         <RouterLink to="/about"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
                             ABOUT</RouterLink>
-                    </NavigationItem>
+                    </NavigationMenuItem>
                 </NavigationMenuList>
             </NavigationMenu>
         </nav>
