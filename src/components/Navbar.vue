@@ -77,7 +77,12 @@ function logout() {
                     <NavigationItem>
                         <RouterLink :to="{ name: 'productArticle', params: { articleId: 1 }}"
                             class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
-                            PRODUCT</RouterLink>
+                            PUPUK NPK</RouterLink>
+                    </NavigationItem>
+                    <NavigationItem>
+                        <RouterLink :to="{ name: 'productArticle', params: { articleId: 2 }}"
+                            class="block px-4 py-2 text-gray-700 hover:text-primary hover:bg-primary/10 text-lg font-semibold rounded-md transition-colors me-8">
+                            PUPUK DAP</RouterLink>
                     </NavigationItem>
                     <NavigationItem>
                         <RouterLink to="/about"
@@ -168,3 +173,5 @@ function logout() {
         </div>
     </header>
 </template>
+<style>
+</style>

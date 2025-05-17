@@ -1,16 +1,16 @@
 <script setup>
 import axios from 'axios';
-import { onMounted, ref } from 'vue';
+import { onMounted, ref, watch } from 'vue';
 import { useRoute } from 'vue-router';
 
 
 const route = useRoute()
-const articleId = route.params.articleId
+const articleId = ref(route.params.articleId)
 const judul = ref('')
 const konten = ref('')
 
-onMounted(() => {
-    axios.get(`${import.meta.env.VITE_API_URL}/article/${articleId}`, {
+function fetch(id) {
+    axios.get(`${import.meta.env.VITE_API_URL}/article/${id}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
         }
@@ -23,10 +23,18 @@ onMounted(() => {
             console.error('gagal ambil data', error);
             console.info('error')
         })
+}
+
+onMounted(() => {
+    fetch(articleId.value)
+})
+
+watch(()=> route.params.articleId, (New, old) => {
+    fetch(New)
 })
 
 const keunggulan = [
-    'Mudah larut sehingga mudah diserap tanah','Terdapat unsur yang lengkap','Dapat memperbaiki sifat fisik juga bioglogis tanah / Tanah menjadi gembur','Dapat meningkatkan produksi hasil pertanian'
+    'Mudah larut sehingga mudah diserap tanah', 'Terdapat unsur yang lengkap', 'Dapat memperbaiki sifat fisik juga bioglogis tanah / Tanah menjadi gembur', 'Dapat meningkatkan produksi hasil pertanian'
 ]
 
 </script>
@@ -82,11 +90,12 @@ const keunggulan = [
             <div class="text-2xl md:text-4xl font-bold text-center">KEUNTUNGAN PUPUK NPK SCUMFOFE</div>
             <div class="mt-3 flex justify-between flex-col gap-2 ">
                 <div v-for="(item, index) in keunggulan" :key="index" class="relative pt-4 pl-4">
-                    <div class="icon-list  bg-gradient-to-br from-green-500 to-yellow-300 absolute top-0 left-0 h-[38px] w-[38px] lg:h-10 lg:w-10 rounded-l-xl rounded-tr-2xl font-bold">
-                        <span class="text-xl lg:text-2xl bottom-0 right-2 absolute">{{ index+1 }}</span>
+                    <div
+                        class="icon-list  bg-gradient-to-br from-green-500 to-yellow-300 absolute top-0 left-0 h-[38px] w-[38px] lg:h-10 lg:w-10 rounded-l-xl rounded-tr-2xl font-bold">
+                        <span class="text-xl lg:text-2xl bottom-0 right-2 absolute">{{ index + 1 }}</span>
                     </div>
                     <div class=" h-full w-full bg-white rounded-md py-2 px-7 lg:text-xl">
-                        {{item}}
+                        {{ item }}
                     </div>
                 </div>
             </div>
@@ -94,6 +103,4 @@ const keunggulan = [
     </section>
     <!-- FOOTER -->
 </template>
-<style >
-
-</style>
+<style></style>
