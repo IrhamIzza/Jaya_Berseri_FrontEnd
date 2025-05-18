@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-light py-3">
+    <section class="bg-black py-3 h-[100vh]">
         <form @submit.prevent="login">
             <Card class="mx-auto max-w-sm my-[15vh]">
                 <CardHeader>

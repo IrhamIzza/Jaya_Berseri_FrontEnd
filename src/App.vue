@@ -27,7 +27,7 @@ function logout() {
 </script>
 
 <template>
-   <header class="h-18">
+   <header class="h-18 " v-if="!['login', 'register'].includes($route.name)">
     <Navbar class="absolute top-0 w-full z-50" v-if="!['login', 'register'].includes($route.name)"/>
    </header>
    <router-view></router-view>

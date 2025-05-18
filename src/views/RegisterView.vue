@@ -1,5 +1,5 @@
 <template>
-    <section class="bg-light py-3 py-md-5">
+    <section class="bg-black py-3 h-[100vh] py-md-5">
         <Card class="mx-auto max-w-sm my-[15vh]">
             <CardHeader>
                 <CardTitle class="text-2xl">
