@@ -82,7 +82,7 @@ const picture = [
                     </div>
                 </div>
                 <div class="w-[15vh] md:w-full">
-                    <img src="/public/images/Butir_NPK.PNG" alt="">
+                    <img src="/images/Butir_NPK.PNG" alt="">
                 </div>
             </div>
         </div>

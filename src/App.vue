@@ -23,6 +23,7 @@ function logout() {
       });
 
 }
+
 </script>
 
 <template>

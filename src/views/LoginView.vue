@@ -34,8 +34,10 @@
                     </div>
                     <div class="mt-4 text-center text-sm">
                         Don't have an account?
-                        <router-link to=/register class="underline"> Sign up
-                        </router-link>
+                        <router-link to=/register class="underline"> Sign up</router-link>
+                    </div>
+                    <div class="mt-4 text-center text-sm">
+                        <router-link to=/home class="underline"> Home</router-link>
                     </div>
                 </CardContent>
             </Card>

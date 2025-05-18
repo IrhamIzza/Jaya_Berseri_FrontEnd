@@ -32,6 +32,13 @@ onMounted(() => {
         .catch(function (error) {
             console.error('gagal ambil data', error);
             console.info('error')
+            if (error.response && error.response.status === 401) {
+                localStorage.removeItem('token');
+                localStorage.removeItem('name');
+                localStorage.removeItem('email');
+                localStorage.removeItem('role');
+                router.push('/home');
+            }
         })
 })
 

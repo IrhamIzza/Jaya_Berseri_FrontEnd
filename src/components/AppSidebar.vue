@@ -1,4 +1,6 @@
 <script setup lang="ts">
+import { RouterLink } from 'vue-router';
+
 
 
 
@@ -9,13 +11,12 @@
     <nav>
       <ul class="space-y-2">
         <li>
-          <a href="/admin" class="block py-2 px-3 rounded hover:bg-gray-700">Dashboard</a>
+          <RouterLink to="/dashboard" class="block py-2 px-3 rounded hover:bg-gray-700">Dashboard
+          </RouterLink>
         </li>
         <li>
-          <a href="#" class="block py-2 px-3 rounded hover:bg-gray-700">Users</a>
-        </li>
-        <li>
-          <a href="/home" class="block py-2 px-3 rounded hover:bg-gray-700">Home</a>
+          <RouterLink to="/home" class="block py-2 px-3 rounded hover:bg-gray-700">Home
+          </RouterLink>
         </li>
       </ul>
     </nav>

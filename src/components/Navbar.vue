@@ -108,7 +108,7 @@ function logout() {
 
                 <SheetContent side="left">
                     <nav class="flex flex-col mt-8 space-y-4 p-4">
-                        <SheetClose class="border-b-2 text-left">
+                        <SheetClose v-if="role == 1" class="border-b-2 text-left">
                             <RouterLink to="/dashboard" class="text-gray-700 hover:text-primary text-lg font-semibold">
                                 DASHBOARD
                             </RouterLink>

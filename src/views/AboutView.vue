@@ -4,7 +4,7 @@ import Footer from '@/components/Footer.vue';
 </script>
 <template>
     <section>
-        <div class="bg-black text-white p-4">
+        <div class="bg-black text-white p-6 md:px-16">
             <h1 class="text-4xl font-bold text-center py-4">TENTANG KAMI</h1>
             <div class="flex flex-col gap-2 text-1xl md:text-2xl">
                 <p>Kami adalah perusahaan pupuk pertanian dalam mengatasi kelangkaan pupuk subsidi dari pemerintah. Kami menyediakan pupuk alternatif yang berkualitas dengan harga yang terjangkau oleh masyarakat petani,Karakter pupuk kami adalah mengandung unsur yang lengkap dan seimbang antara unsur makro dan mikro sesuai dengan yang di butuhkan tanaman.</p>

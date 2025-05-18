@@ -24,23 +24,23 @@ const props = defineProps({
       <TableCaption>A list of your recent invoices.</TableCaption>
       <TableHeader>
         <TableRow>
-          <TableHead class="w-[100px]">
+          <TableHead class="w-[30px]">
             No.
           </TableHead>
           <TableHead>Judul</TableHead>
           <TableHead >Konten</TableHead>
-          <TableHead>Last Update</TableHead>
+          <TableHead class="hidden md:block">Last Update</TableHead>
           <TableHead>ACTION</TableHead>
         </TableRow>
       </TableHeader>
       <TableBody>
         <TableRow v-for="(item, index) in items" :key="item.id">
-          <TableCell class="font-medium">
+          <TableCell class="font-medium ">
             {{ index + 1 }}
           </TableCell>
           <TableCell>{{ item.judul }}</TableCell>
           <TableCell class="whitespace-normal overflow-y-auto max-h-10">{{ item.konten }}</TableCell>
-          <TableCell>{{ item.updated_at }}</TableCell>
+          <TableCell class="hidden md:block">{{ item.updated_at }}</TableCell>
           <TableCell>
             <Button><router-link :to="{ name: 'articleEdit', params: { articleId: item.id }}">Edit</router-link></Button>
           </TableCell>

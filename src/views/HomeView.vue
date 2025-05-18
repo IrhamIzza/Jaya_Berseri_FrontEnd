@@ -3,6 +3,7 @@ import { Button } from '@/components/ui/button'
 import Card from '../components/Card.vue';
 import CardProduct from '@/components/CardProduct.vue';
 import Footer from '@/components/Footer.vue';
+import { RouterLink } from 'vue-router';
 
 const itemsCard = [
   {
@@ -54,7 +55,7 @@ const itemCardProduct = [
               turut serta membantu petani dalam mengatasi kelangkaan pupuk subsidi seiring di kuranginya kuota pupuk
               bersubsidi dari pemerintah.</h5>
             <div class="flex">
-              <Button variant="outline">FIND OUT MORE</Button>
+              <RouterLink to="/about"><Button class="cursor-pointer" variant="outline">FIND OUT MORE</Button></RouterLink>
             </div>
           </div>
           <div class="md:flex-1/6 my-auto items-center">
