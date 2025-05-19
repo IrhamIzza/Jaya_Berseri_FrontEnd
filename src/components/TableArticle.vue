@@ -21,7 +21,7 @@ const props = defineProps({
 <template>
   <div>
     <Table>
-      <TableCaption>A list of your recent invoices.</TableCaption>
+      <TableCaption>A list of your table article.</TableCaption>
       <TableHeader>
         <TableRow>
           <TableHead class="w-[30px]">
@@ -29,7 +29,7 @@ const props = defineProps({
           </TableHead>
           <TableHead>Judul</TableHead>
           <TableHead >Konten</TableHead>
-          <TableHead class="hidden md:block">Last Update</TableHead>
+          <!-- <TableHead class="hidden md:block">Last Update</TableHead> -->
           <TableHead>ACTION</TableHead>
         </TableRow>
       </TableHeader>
@@ -40,7 +40,7 @@ const props = defineProps({
           </TableCell>
           <TableCell>{{ item.judul }}</TableCell>
           <TableCell class="whitespace-normal overflow-y-auto max-h-10">{{ item.konten }}</TableCell>
-          <TableCell class="hidden md:block">{{ item.updated_at }}</TableCell>
+          <!-- <TableCell class="hidden md:block">{{ item.updated_at }}</TableCell> -->
           <TableCell>
             <Button><router-link :to="{ name: 'articleEdit', params: { articleId: item.id }}">Edit</router-link></Button>
           </TableCell>

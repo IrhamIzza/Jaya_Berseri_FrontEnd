@@ -19,7 +19,7 @@ onMounted(() => {
         }
     })
         .then(function (response) {
-            //  console.log(response.data.messages);
+            //  console.log(response.data);
             artikel.value = response.data.data.map(function (item) {
                 return {
                     id : item.id,

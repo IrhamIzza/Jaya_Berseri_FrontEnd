@@ -54,7 +54,7 @@ function logout() {
 }
 </script>
 <template>
-    <header class="flex items-center justify-between p-4 bg-linear-to-bl from-violet-500 to-fuchsia-500 shadow-md">
+    <header class="flex items-center justify-between p-4 bg-linear-to-bl from-green-500 to-lime-500 shadow-md">
         <!-- Logo -->
         <div class="text-xl font-bold text-primary">
             JAYA BERSERI

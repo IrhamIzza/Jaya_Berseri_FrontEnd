@@ -55,7 +55,7 @@ const itemCardProduct = [
               turut serta membantu petani dalam mengatasi kelangkaan pupuk subsidi seiring di kuranginya kuota pupuk
               bersubsidi dari pemerintah.</h5>
             <div class="flex">
-              <RouterLink to="/about"><Button class="cursor-pointer" variant="outline">FIND OUT MORE</Button></RouterLink>
+              <RouterLink to="/about"><Button class="cursor-pointer" size="lg" variant="gradient">FIND OUT MORE</Button></RouterLink>
             </div>
           </div>
           <div class="md:flex-1/6 my-auto items-center">
@@ -67,7 +67,7 @@ const itemCardProduct = [
     <!-- Kelebihan -->
     <section>
       <div class="bg-neutral-800 py-6">
-        <h1 class="text-4xl text-center font-bold text-white">KELEBIHAN</h1>
+        <h1 class="text-4xl text-center font-bold text-white py-2">KELEBIHAN</h1>
         <div class="px-4 sm:flex gap-4 justify-center">
           <Card v-for="(value, index) in itemsCard" loading="lazy"
               :key="index"
@@ -120,7 +120,7 @@ const itemCardProduct = [
     <section class="">
         <div class="bg-neutral-700 py-8 md:px-20">
           <h1 class="text-4xl pb-4 text-center font-bold text-white">PRODUK</h1>
-          <div class="px-4 flex flex-col sm:flex-row gap-2 ">
+          <div class="px-4 flex flex-col sm:flex-row gap-4 ">
             <CardProduct>
             
             </CardProduct>

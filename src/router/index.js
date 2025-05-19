@@ -49,12 +49,11 @@ const router = createRouter({
       name: 'productArticle',
       component: ArticleView,
     }
-    // {
-    //   path: '/about',
-    //   name: 'about',
-    //   component: () => import('../views/AboutView.vue'),
-    // },
   ],
+    scrollBehavior(to, from, savedPosition) {
+    // Selalu scroll ke atas
+    return { top: 0 }
+  }
 })
 
 export default router

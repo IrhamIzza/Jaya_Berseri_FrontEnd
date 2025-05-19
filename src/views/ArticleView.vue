@@ -1,16 +1,20 @@
 <script setup>
 import Footer from '@/components/Footer.vue';
+import Button from '@/components/ui/button/Button.vue';
+import Skeleton from '@/components/ui/skeleton/Skeleton.vue';
 import axios from 'axios';
 import { onMounted, ref, watch } from 'vue';
-import { useRoute } from 'vue-router';
+import { RouterLink, useRoute } from 'vue-router';
 
 
 const route = useRoute()
 const articleId = ref(route.params.articleId)
 const judul = ref('')
 const konten = ref('')
+const loading = ref(true)
 
 function fetch(id) {
+    loading.value = true
     axios.get(`${import.meta.env.VITE_API_URL}/article/${id}`, {
         headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}`,
@@ -23,6 +27,9 @@ function fetch(id) {
         .catch(function (error) {
             console.error('gagal ambil data', error);
             console.info('error')
+        })
+        .finally(() => {
+            loading.value = false
         })
 }
 
@@ -46,16 +53,30 @@ const picture = [
     <!-- ARTICLE -->
     <section>
         <div class="bg-gray-300 w-full h-full mt-4 p-6 lg:px-32">
-            <div class="text-4xl md:text-5xl font-bold text-center py-4">{{ judul }}</div>
-            <div class="flex flex-col md:flex-row gap-4 lg:px-10">
+            <!-- Skeleton -->
+            <div v-if="loading" class="flex pb-6"><Skeleton class="h-10 w-[200px] mx-auto "></Skeleton></div>
+            <div v-else class="text-4xl md:text-5xl font-bold text-center pb-6">{{ judul }}</div>
+            <div class="flex flex-col md:flex-row gap-4">
                 <div
                     class="w-[35vh] max-w-[40vh] md:w-1/5 mx-auto object-cover hover:scale-110 duration-500 animate-all">
                     <img src="/images/icon1.png" class="rounded-md max-h-40 md:max-h-60 flex mx-auto" alt="">
                 </div>
-                <p class="md:w-4/5 lg:text-xl">
+                <!-- Skeleton -->
+                <div v-if="loading" class="md:w-4/5">
+                    <div class="space-y-2">
+                        <Skeleton class="h-6 w-full" v-for="item in 7" :key="item" />
+                    </div>
+                </div>
+                <!-- Content  -->
+                <p v-else class="md:w-4/5 lg:text-xl text-justify">
                     {{ konten }}
                 </p>
             </div>
+            <div class="relative h-12 md:h-12">
+                <Button class="absolute md:end-0 bottom-0"><a target="_blank"
+                        href="https://wa.me/+6281334067463">PESAN</a></Button>
+            </div>
+
         </div>
     </section>
 
@@ -123,7 +144,8 @@ const picture = [
         <div class="p-4 lg:px-40 md:px-10">
             <div class="grid grid-cols-2 sm:grid-cols-3 gap-2 md:gap-6">
                 <div v-for="(item, index) in picture" :key="index">
-                    <img class="aspect-[3/2] w-full object-cover border-[6px] border-green-500 rounded-md" :src=item loading="lazy">
+                    <img class="aspect-[3/2] w-full object-cover border-[6px] border-green-500 rounded-md" :src=item
+                        loading="lazy">
                 </div>
             </div>
         </div>
