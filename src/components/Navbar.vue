@@ -120,7 +120,12 @@ function logout() {
                         </SheetClose>
                         <SheetClose class="border-b-2 text-left">
                             <RouterLink :to="{ name: 'productArticle', params: { articleId: 1 }}" class="text-gray-700 hover:text-primary text-lg font-semibold">
-                                PRODUCT
+                                PUPUK NPK
+                            </RouterLink>
+                        </SheetClose>
+                        <SheetClose class="border-b-2 text-left">
+                            <RouterLink :to="{ name: 'productArticle', params: { articleId: 2 }}" class="text-gray-700 hover:text-primary text-lg font-semibold">
+                                PUPUK DAP
                             </RouterLink>
                         </SheetClose>
                         <SheetClose class="border-b-2 text-left">
