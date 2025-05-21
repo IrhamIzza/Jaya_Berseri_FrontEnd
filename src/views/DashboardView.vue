@@ -49,7 +49,6 @@ onMounted(() => {
         <AppSidebar class="hidden sm:block"></AppSidebar>
         <main class="flex-1 p-6 bg-gray-100 overflow-auto">
             <h1 class="text-2xl font-bold mb-4">Hello</h1>
-            <!-- Misalnya panggil komponen table di sini -->
             <TableArticle :items="artikel"
             >
             </TableArticle>
