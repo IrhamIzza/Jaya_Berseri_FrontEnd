@@ -42,7 +42,7 @@ watch(() => route.params.articleId, (New, old) => {
 })
 
 const keunggulan = [
-    'Mudah larut sehingga mudah diserap tanah', 'Terdapat unsur yang lengkap', 'Dapat memperbaiki sifat fisik juga bioglogis tanah / Tanah menjadi gembur', 'Dapat meningkatkan produksi hasil pertanian'
+    'Mudah larut sehingga mudah diserap tanah', 'Terdapat unsur yang lengkap', 'Memperbaiki sifat fisik juga bioglogis tanah / Tanah menjadi gembur', 'Dapat meningkatkan produksi hasil pertanian'
 ]
 const picture = [
     '/images/npk1.jpeg', '/images/npk2.jpeg', '/images/npk3.jpeg', '/images/npk4.jpeg', '/images/npk5.jpeg', '/images/npk6.jpeg'
