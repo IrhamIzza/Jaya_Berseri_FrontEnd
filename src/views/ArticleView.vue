@@ -11,6 +11,7 @@ const route = useRoute()
 const articleId = ref(route.params.articleId)
 const judul = ref('')
 const konten = ref('')
+const image = ref('')
 const loading = ref(true)
 
 function fetch(id) {
@@ -23,6 +24,8 @@ function fetch(id) {
         .then(function (response) {
             judul.value = response.data.data.judul.toUpperCase()
             konten.value = response.data.data.konten
+            image.value = response.data.data.image
+            image.value = import.meta.env.VITE_BASE_URL + '/storage/uploads/' + image.value 
         })
         .catch(function (error) {
             console.error('gagal ambil data', error);
@@ -59,9 +62,11 @@ const picture = [
             <div class="flex flex-col md:flex-row gap-4">
                 <div
                     class="w-[35vh] max-w-[40vh] md:w-1/5 mx-auto object-cover hover:scale-110 duration-500 animate-all">
-                    <img src="/images/icon1.png" class="rounded-md max-h-40 md:max-h-60 flex mx-auto" alt="">
-                </div>
-                <!-- Skeleton -->
+                <!-- Skeleton image -->
+                <Skeleton v-if="loading" class="h-52 md:max-h-60"></Skeleton>
+                <img v-else :src="image" class="rounded-md max-h-40 md:max-h-60 flex mx-auto" alt="">
+            </div>
+                <!-- Skeleton konten-->
                 <div v-if="loading" class="md:w-4/5">
                     <div class="space-y-2">
                         <Skeleton class="h-6 w-full" v-for="item in 7" :key="item" />
@@ -85,7 +90,7 @@ const picture = [
         <div class="py-8 md:mt-6">
             <div class="text-xl font-bold text-center md:text-4xl lg:text-[44px]">UNSUR YANG TERKANDUNG DI DALAMNYA
             </div>
-            <div class="grid grid-flow-col py-6 place-items-center place-content-evenly">
+            <div class="grid grid-flow-col px-2 py-6 place-items-center place-content-evenly">
                 <div class="grid grid-flow-col gap-5 md:gap-10">
 
                     <div class="text-sm sm:text-base md:text-3xl ">
