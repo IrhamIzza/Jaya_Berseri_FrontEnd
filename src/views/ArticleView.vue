@@ -25,7 +25,7 @@ function fetch(id) {
             judul.value = response.data.data.judul.toUpperCase()
             konten.value = response.data.data.konten
             image.value = response.data.data.image
-            image.value = import.meta.env.VITE_BASE_URL + '/storage/uploads/' + image.value 
+            image.value = import.meta.env.VITE_BASE_URL + '/uploads/' + image.value 
         })
         .catch(function (error) {
             console.error('gagal ambil data', error);

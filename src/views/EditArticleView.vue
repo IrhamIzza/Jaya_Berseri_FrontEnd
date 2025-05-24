@@ -38,7 +38,8 @@ onMounted(() => {
         judul.value = response.data.data.judul
         konten.value = response.data.data.konten
         previewImage.value = response.data.data.image // Gambar lama (URL)
-        previewImage.value = import.meta.env.VITE_BASE_URL + '/storage/uploads/' + previewImage.value 
+        // previewImage.value = import.meta.env.VITE_BASE_URL + '/storage/uploads/' + previewImage.value 
+        previewImage.value = import.meta.env.VITE_BASE_URL + '/uploads/' + previewImage.value 
 
     }).catch((error) => {
         console.error('Gagal ambil data artikel', error)
