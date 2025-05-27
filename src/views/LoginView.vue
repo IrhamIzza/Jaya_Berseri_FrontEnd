@@ -25,7 +25,11 @@
                             </div>
                             <Input v-model="password" id="password" type="password" autocomplete="on" required />
                         </div>
-                        <Button @click="login" type="submit" class="w-full" >
+                        <div class="flex gap-2 items-center">
+                            <input class="size-4 cursor-pointer" type="checkbox" id="group_1" v-model="remember_me"/> 
+                            <label class="cursor-pointer" for="group_1">Remember Me</label>
+                        </div>
+                        <Button @click="login" type="submit" class="w-full cursor-pointer" >
                             Login
                         </Button>
                         <div v-if="errorMessage" class="text-sm text-red-600">
@@ -76,6 +80,7 @@ const email = ref('');
 const password = ref('');
 const errorMessage = ref('');
 const loading = ref(false);
+const remember_me = ref(0);
 
 onMounted(() => {
     const token = localStorage.getItem('token');
@@ -90,6 +95,7 @@ function login() {
     axios.post(`${import.meta.env.VITE_API_URL}/login`, {
         email: email.value,
         password: password.value,
+        remember_me: remember_me.value,
 
     })
         .then(function (response) {
