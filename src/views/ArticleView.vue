@@ -12,6 +12,7 @@ const articleId = ref(route.params.articleId)
 const judul = ref('')
 const konten = ref('')
 const image = ref('')
+const imageKandungan = ref('')
 const loading = ref(true)
 
 function fetch(id) {
@@ -26,6 +27,8 @@ function fetch(id) {
             konten.value = response.data.data.konten
             image.value = response.data.data.image
             image.value = import.meta.env.VITE_BASE_URL + '/uploads/' + image.value 
+            imageKandungan.value = response.data.data.image_kandungan
+            console.log(imageKandungan)
         })
         .catch(function (error) {
             console.error('gagal ambil data', error);
@@ -79,7 +82,7 @@ const picture = [
             </div>
             <div class="relative h-12 md:h-12">
                 <Button class="absolute md:end-0 bottom-0"><a target="_blank"
-                        href="https://wa.me/+6281334067463">PESAN</a></Button>
+                        href="https://wa.me/+6281334067463">PESAN SEKARANG</a></Button>
             </div>
 
         </div>
@@ -108,7 +111,8 @@ const picture = [
                     </div>
                 </div>
                 <div class="w-[15vh] md:w-full">
-                    <img src="/images/Butir_NPK.PNG" alt="">
+                    <Skeleton v-if="loading" class="flex mx-auto h-18 w-18 md:h-24 md:w-24 rounded-full" />
+                    <img v-else :src="'/images/' + imageKandungan" class="rounded-full" alt="">
                 </div>
             </div>
         </div>
